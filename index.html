@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for Open Graph Protocol -->
+    <meta property="og:title" content="InfiniKisser">
+    <meta property="og:description" content="A Wall of Boykisser Gifs">
+    <meta property="og:image" content="https://riley-vm.github.io/infinikisser/guh.png">
+    <meta property="og:url" content="https://riley-vm.github.io/infinikisser">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[InfiniKisser]</title>
+    <link rel="icon" href="guh.ico" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            display: flex;
+            flex-wrap: wrap;
+            overflow-y: scroll;
+        }
+        .gif {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const gifs = ['guh.gif', 'guh2.gif', 'guh3.gif', 'guh4.gif', 'guh5.gif', 'guh6.gif', 'guh7.gif', 'guh8.gif', 'guh9.gif', 'guh10.gif', 'guh11.gif', 'guh12.gif', 'guh13.gif', 'guh14.gif', 'guh15.gif'];
+        const numGifsInitial = 698;
+        const maxGifs = 200; 
+        const loadMoreThreshold = 300; 
+
+       
+        function createGif() {
+            const gif = document.createElement('img');
+            gif.src = gifs[Math.floor(Math.random() * gifs.length)];
+            gif.className = 'gif';
+            document.body.appendChild(gif);
+        }
+
+       
+        for (let i = 0; i < numGifsInitial; i++) {
+            createGif();
+        }
+
+        
+        window.addEventListener('scroll', () => {
+            if (document.documentElement.scrollHeight - window.scrollY - window.innerHeight < loadMoreThreshold) {
+                for (let i = 0; i < 20; i++) {
+                    createGif();
+                }
+
+                
+                const currentGifs = document.querySelectorAll('.gif');
+                if (currentGifs.length > maxGifs) {
+                    for (let i = 0; i < 20; i++) {
+                        currentGifs[i].remove();
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
