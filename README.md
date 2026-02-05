@@ -1,1 +1,1 @@
-moved to [here](https://git.gay/Riley/pages/src/branch/main/infinikisser)
+moved to [here](https://git.gay/Ri/pages/src/branch/main/infinikisser)
